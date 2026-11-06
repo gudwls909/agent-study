@@ -1,0 +1,11 @@
+# 이미지에 넣지 않을 파일들 (.gitignore와 같은 역할)
+
+# API 키: 이미지에 넣으면 이미지를 받은 사람 누구나 키를 꺼낼 수 있다. 실행할 때 --env-file로 넣는다.
+.env
+
+# DB 파일: 데이터는 이미지가 아니라 볼륨(-v)에 둔다
+*.db
+
+__pycache__/
+Dockerfile
+.dockerignore

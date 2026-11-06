@@ -1,0 +1,8 @@
+# 이 프로젝트에 필요한 패키지와 정확한 버전 목록
+# 버전을 고정해 두면 언제, 어디서 설치해도 똑같은 환경이 만들어진다
+# (지금 agent-study 환경에서 pip freeze로 확인한 버전)
+openai==3.46.0
+python-dotenv==1.2.4
+mcp==2.3.0
+fastapi==0.162.0
+uvicorn[standard]==0.54.0

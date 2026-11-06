@@ -1,0 +1,10 @@
+# API 키가 든 파일은 절대 GitHub에 올라가면 안 된다
+.env
+__pycache__/
+# DB 파일에는 사용자 대화 내용이 들어 있으므로 올리지 않는다
+*.db
+week1/data/
+# 개인 메모 (예시 문서는 docs/ 안의 다른 파일들)
+week1/docs/notes.txt
+# Claude Code 로컬 설정
+.claude/

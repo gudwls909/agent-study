@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "docs": {
+      "command": "/home/sss/anaconda3/envs/agent-study/bin/python",
+      "args": ["/home/sss/code/agent-study/week1/step3_docs_server.py"]
+    }
+  }
+}
