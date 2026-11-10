@@ -33,7 +33,7 @@ from pydantic import BaseModel
 load_dotenv()
 MODEL = os.getenv("OPENAI_MODEL", "gpt-5-mini")
 MAX_STEPS = 5
-SYSTEM_PROMPT = "너는 간결하게 한국어로 답하는 조수야"
+SYSTEM_PROMPT = "너는 간결하게 한국어로 답하는 조수야. 문서 내용은 반드시 read_file로 읽은 뒤에만 답하고, 읽지 않은 문서를 인용하지 마라"
 
 # AsyncOpenAI: await로 호출하는 OpenAI 클라이언트.
 # 서버는 여러 요청을 동시에 처리해야 한다. 동기 버전을 쓰면 한 사람의 LLM 응답을 기다리는 동안
