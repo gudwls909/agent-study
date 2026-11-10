@@ -77,9 +77,24 @@ API 문서는 서버 실행 후 `http://localhost:8000/docs`에서 볼 수 있�
 | `GET /sessions/{session_id}` | 세션의 전체 대화 기록 조회 (없으면 404) |
 | `GET /health` | 상태 확인 |
 
+## 테스트
+
+```bash
+cd week1
+pytest -v   # 22개, 약 1초. 실제 OpenAI API를 호출하지 않으므로 API 키 없이도 실행됩니다
+```
+
+| 파일 | 검사 내용 |
+|---|---|
+| `tests/test_read_file.py` | 경로 탐색 공격 차단(`../`, 절대 경로, 이름이 비슷한 옆 폴더, 심볼릭 링크) |
+| `tests/test_db.py` | 저장/조회 순서, 세션 분리, tool_calls 같은 중첩 메시지 왕복, SQL 인젝션 |
+| `tests/test_agent_loop.py` | 가짜 LLM·가짜 MCP로 Agent 루프 검증: `tool_call_id` 매칭, 병렬 도구 호출, 도구 오류 격리, `MAX_STEPS` 상한, `/chat` 세션 이어 가기 |
+
+테스트가 실제로 버그를 잡는지 확인하기 위해, 경로 검사를 `startswith`로 바꾸거나 과거의 세션 저장 버그를 되살렸을 때 해당 테스트가 실패하는 것을 확인했습니다.
+
 ## 앞으로 할 것
 
-- [ ] pytest: 경로 검사, 저장소, LLM 응답을 모킹한 Agent 루프 테스트
+- [x] pytest: 경로 검사, 저장소, LLM 응답을 모킹한 Agent 루프 테스트
 - [ ] Agent 평가: 질의 세트에 대한 도구 선택 정확도, 답변 정확도, 지연시간, 비용 측정
 - [ ] 인증: 세션 소유권 검사 (현재는 `session_id`만 알면 대화 조회 가능)
 - [ ] 컨테이너를 root가 아닌 일반 사용자로 실행

@@ -1,6 +1,7 @@
 # API 키가 든 파일은 절대 GitHub에 올라가면 안 된다
 .env
 __pycache__/
+.pytest_cache/
 # DB 파일에는 사용자 대화 내용이 들어 있으므로 올리지 않는다
 *.db
 week1/data/
